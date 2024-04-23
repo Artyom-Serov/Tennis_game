@@ -18,3 +18,8 @@ if __name__ == '__main__':
 
     x = (screen_width/2) - (WINDOW_WIDTH/2)
     y = (screen_height/2) - (WINDOW_HEIGHT/2)
+
+    app.geometry('%dx%d+%d+%d' % (WINDOW_WIDTH, WINDOW_HEIGHT, x, y))
+    app.update()
+
+    app.mainloop()
