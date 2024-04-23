@@ -16,3 +16,5 @@ if __name__ == '__main__':
     screen_width = app.winfo_screenmmwidth()
     screen_height = app.winfo_screenmmheight()
 
+    x = (screen_width/2) - (WINDOW_WIDTH/2)
+    y = (screen_height/2) - (WINDOW_HEIGHT/2)
