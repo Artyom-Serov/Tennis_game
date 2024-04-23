@@ -12,3 +12,7 @@ if __name__ == '__main__':
 
     canvas = Canvas(app, width=WINDOW_WIDTH, height=WINDOW_HEIGHT)
     canvas.pack()
+
+    screen_width = app.winfo_screenmmwidth()
+    screen_height = app.winfo_screenmmheight()
+
