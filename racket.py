@@ -28,3 +28,8 @@ class Racket:
     def draw(self):
         self.canvas.move(self.id, self.x, 0)
         position = Position(*self.canvas.coords(self.id))
+
+        if position.x_up_left <= 0:
+            self.x = 0
+        elif position.x_down_right >= WINDOW_WIDTH:
+            self.x = 0
