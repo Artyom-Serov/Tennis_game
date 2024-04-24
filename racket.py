@@ -1,6 +1,8 @@
 """Модуль настроек отображения и поведения рокетки."""
 
 from tkinter import Canvas
+
+from positions import Position
 from constants import (LENGHT_RACKET, HEIGHT_RACKET, X_0_RACKET, Y_0_RACKET,
                        VECTOR_LEFT, VECTOR_RIGHT, WINDOW_HEIGHT, WINDOW_WIDTH)
 
@@ -22,3 +24,6 @@ class Racket:
 
     def move_left(self, event):
         self.x = VECTOR_LEFT
+
+    def draw(self):
+        self.canvas.move(self.id, self.x, 0)

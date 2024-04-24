@@ -1,7 +1,8 @@
 """Модуль настроек отображения и поведения шарика."""
 
-from dataclasses import dataclass
 from tkinter import Canvas
+
+from positions import Position
 from constants import (RADIUS_X, RADIUS_Y, X_0_BALL, Y_0_BALL,
                        WINDOW_HEIGHT, WINDOW_WIDTH)
 
@@ -35,7 +36,7 @@ class Ball:
         if positions.x_down_right >= WINDOW_HEIGHT:
             self.x = -2
 
-    def hit_the_racket(self, positions: 'Position') -> bool:
+    def hit_the_racket(self, positions: Position) -> bool:
         racket_position = Position(*self.canvas.coords(self.racket.id))
         return (
             positions.x_down_right >= racket_position.x_up_left and
@@ -43,11 +44,3 @@ class Ball:
             racket_position.y_up_left <= positions.y_down_right <=
             racket_position.y_down_right
         )
-
-
-@dataclass
-class Position:
-    x_up_left: int
-    y_up_left: int
-    x_down_right: int
-    y_down_right: int
