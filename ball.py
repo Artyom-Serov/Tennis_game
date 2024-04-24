@@ -1,4 +1,4 @@
-"""Модуль настроек шарика."""
+"""Модуль настроек отображения и поведения шарика."""
 
 from dataclasses import dataclass
 from tkinter import Canvas
