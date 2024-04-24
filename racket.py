@@ -2,7 +2,7 @@
 
 from tkinter import Canvas
 from constants import (LENGHT_RACKET, HEIGHT_RACKET, X_0_RACKET, Y_0_RACKET,
-                       WINDOW_HEIGHT, WINDOW_WIDTH)
+                       VECTOR_LEFT, VECTOR_RIGHT, WINDOW_HEIGHT, WINDOW_WIDTH)
 
 
 class Racket:
@@ -14,3 +14,11 @@ class Racket:
         self.canvas.move(self.id, WINDOW_WIDTH // 2 - LENGHT_RACKET // 2,
                          WINDOW_HEIGHT - 50)
         self.x = 0
+        self.canvas.bind_all('<KeyPress-Right>', self.move_right)
+        self.canvas.bind_all('<KeyPress-Left>', self.move_left)
+
+    def move_right(self, event):
+        self.x = VECTOR_RIGHT
+
+    def move_left(self, event):
+        self.x = VECTOR_LEFT
