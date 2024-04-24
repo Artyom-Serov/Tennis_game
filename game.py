@@ -1,8 +1,12 @@
 """Модуль настроек запуска игры."""
 
+import time
 from tkinter import Canvas, Tk
-from constants import WINDOW_WIDTH, WINDOW_HEIGHT
 
+from ball import Ball
+from constants import WINDOW_WIDTH, WINDOW_HEIGHT
+from racket import Racket
+from score import Score
 
 if __name__ == '__main__':
     app = Tk()
@@ -22,4 +26,17 @@ if __name__ == '__main__':
     app.geometry('%dx%d+%d+%d' % (WINDOW_WIDTH, WINDOW_HEIGHT, x, y))
     app.update()
 
-    app.mainloop()
+    racket = Racket(canvas)
+    score = Score(canvas)
+    ball = Ball(canvas, racket, score)
+
+    while not ball.fell_down:
+        ball.draw()
+        racket.draw()
+        app.update_idletasks()
+        app.update()
+        time.sleep(0.02)
+    canvas.create_text(WINDOW_WIDTH // 2, WINDOW_HEIGHT // 2,
+                       text='Игра закончена', fill='black')
+    app.update()
+    time.sleep(5)
