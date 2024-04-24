@@ -30,6 +30,10 @@ class Ball:
         if self.hit_the_racket(positions):
             self.score.add()
             self.y = -2
+        if positions.x_up_left <= 0:
+            self.x = 2
+        if positions.x_down_right >= WINDOW_HEIGHT:
+            self.x = -2
 
     def hit_the_racket(self, positions: 'Position') -> bool:
         racket_position = Position(*self.canvas.coords(self.racket.id))
