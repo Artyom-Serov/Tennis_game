@@ -27,3 +27,4 @@ class Racket:
 
     def draw(self):
         self.canvas.move(self.id, self.x, 0)
+        position = Position(*self.canvas.coords(self.id))
