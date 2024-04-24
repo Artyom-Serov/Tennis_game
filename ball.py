@@ -1,5 +1,8 @@
+"""Модуль настроек шарика."""
+
 from tkinter import Canvas
-from constants import RADIUS_X, RADIUS_Y, X_0_BALL, Y_0_BALL
+from constants import (RADIUS_X, RADIUS_Y, X_0_BALL, Y_0_BALL,
+                       WINDOW_HEIGHT, WINDOW_WIDTH)
 
 
 class Ball:
@@ -10,3 +13,5 @@ class Ball:
         self.id = canvas.create_oval(X_0_BALL, Y_0_BALL,
                                      RADIUS_X, RADIUS_Y,
                                      fill='blue')
+        self.canvas.move(self.id, WINDOW_WIDTH // 2, WINDOW_HEIGHT // 2)
+        self.x = self.y = -2
