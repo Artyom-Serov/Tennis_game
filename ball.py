@@ -22,6 +22,12 @@ class Ball:
         self.canvas.move(self.id, self.x, self.y)
         positions = Position(*self.canvas.coords(self.id))
 
+        if positions.y_down_right >= WINDOW_HEIGHT:
+            self.fell_down = True
+            return
+        if positions.y_up_left <= 0:
+            self.y = 2
+
 
 @dataclass
 class Position:
@@ -29,4 +35,3 @@ class Position:
     y_up_left: int
     x_down_right: int
     y_down_right: int
-
