@@ -2,7 +2,7 @@
 
 from tkinter import Canvas
 
-from constants import X_0_SCORE, Y_0_SCORE
+from constants import SCORE_STEP, X_0_SCORE, Y_0_SCORE
 
 
 class Score:
@@ -11,3 +11,7 @@ class Score:
         self.canvas = canvas
         self.id = canvas.create_text(X_0_SCORE, Y_0_SCORE,
                                      text=self.score, fill='green')
+
+    def add(self):
+        self.score += SCORE_STEP
+        self.canvas.itemconfig(self.id, text=self.score)
